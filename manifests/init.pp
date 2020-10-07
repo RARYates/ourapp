@@ -14,10 +14,22 @@ class ourapp {
     group  => 'apache'
   }
 
-  file {'/var/www/html/homepage.html':
-    content => 'This is my super amazing website',
+  concat {'/var/www/html/index.html':
+    ensure => present,
     owner   => 'apache',
     group   => 'apache'
+  }
+
+  concat::fragment {'ourapp-index-header':
+    target => '/var/www/html/index.html',
+    source => 'puppet:///modules/ourapp/index-header.html',
+    order  => '01',
+  }
+
+  concat::fragment {'ourapp-index-footer':
+    target => '/var/www/html/index.html',
+    source => 'puppet:///modules/ourapp/index-footer.html',
+    order  => '03',
   }
 
   apache::vhost {'ourapp':

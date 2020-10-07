@@ -14,4 +14,6 @@ class ourapp::user0 {
     require => Class['apache']
   }
 
+  ourapp::index {'user0':}
+
 }
