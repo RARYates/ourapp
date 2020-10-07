@@ -10,6 +10,7 @@ describe 'ourapp::user0' do
       it { is_expected.to compile }
       it { is_expected.to contain_class('ourapp') }
       it { is_expected.to contain_file('/var/www/html/user0.html') }
+      it { is_expected.to contain_ourapp__index('user0') }
     end
   end
 end
