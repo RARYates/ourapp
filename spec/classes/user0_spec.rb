@@ -8,9 +8,8 @@ describe 'ourapp::user0' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile }
-      it { is_expected.to contain_class('ourapp')}
-      it { is_expected.to contain_file('/var/www/html/user0.html')}
-
+      it { is_expected.to contain_class('ourapp') }
+      it { is_expected.to contain_file('/var/www/html/user0.html') }
     end
   end
 end
